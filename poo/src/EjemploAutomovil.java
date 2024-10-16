@@ -13,18 +13,15 @@ public class EjemploAutomovil {
         auto2.cilindrada = 3.0;
         auto2.color = "Rojo";
 
-
-        System.out.println("auto1.fabricante = " + auto1.fabricante);
-        System.out.println("auto1.modelo = " + auto1.modelo);
-        System.out.println("auto1.color = " + auto1.color);
-        System.out.println("auto1.cilindrada = " + auto1.cilindrada);
-
+        System.out.println( auto1.verDetalle());
+        System.out.println(auto1.acelerar(2500));
+        System.out.println(auto2.acelerar(1500));
         System.out.println("----------------------------------");
+        System.out.println(auto2.verDetalle() );
 
-        System.out.println("auto2.fabricante = " + auto2.fabricante);
-        System.out.println("auto2.modelo = " + auto2.modelo);
-        System.out.println("auto2.color = " + auto2.color);
-        System.out.println("auto2.cilindrada = " + auto2.cilindrada);
-
+        System.out.println(auto1.acelerarFrenar(0));
+        System.out.println(auto1.acelerarFrenar(0));
+        
+        System.out.println("KM Por litro = " + auto1.calcularConsumo(300,40 ));
     }
 }
