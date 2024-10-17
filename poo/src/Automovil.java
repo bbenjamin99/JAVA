@@ -1,10 +1,75 @@
 public class Automovil {
-    String fabricante;
-    String modelo;
-    String color = "Gris";
-    double cilindrada;
-    int capacidadTanque = 40;
+    private String fabricante;
+    private String modelo;
+    private String color = "Gris";
+    private double cilindrada;
+    private int capacidadTanque = 40;
 
+    // Constructor
+    public Automovil(){}
+
+    public Automovil(String fabricante, String modelo){
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+    }
+    public Automovil(String fabricante, String modelo, String color){
+        this(fabricante, modelo);
+        this.color = color;
+    }
+
+    public Automovil(String fabricante, String modelo, String color, double cilindrada){
+        this(fabricante,modelo,color);
+        this.cilindrada = cilindrada;
+    }
+
+    public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadTanque){
+        this(fabricante,modelo,color,cilindrada);
+        this.capacidadTanque = capacidadTanque;
+    }
+
+
+    // Getters & Setters
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getCilindrada() {
+        return cilindrada;
+    }
+
+    public void setCilindrada(double cilindrada) {
+        this.cilindrada = cilindrada;
+    }
+
+    public int getCapacidadTanque() {
+        return capacidadTanque;
+    }
+
+    public void setCapacidadTanque(int capacidadTanque) {
+        this.capacidadTanque = capacidadTanque;
+    }
+
+    // Methods
     public String verDetalle() {
         StringBuilder sb = new StringBuilder();
         sb.append("auto1.fabricante = "+ this.fabricante + "\n")
@@ -38,5 +103,21 @@ public class Automovil {
     public float calcularConsumo(int kilometros, int porcentajeCombustible) {
         
         return  kilometros / (capacidadTanque * (porcentajeCombustible / 100f));
+    }
+
+
+
+    // Overrides
+    @Override
+    public boolean equals(Object obj) {
+        Automovil a = (Automovil)obj;
+
+        if(this == obj ) return true;
+        if ( !(obj instanceof Automovil) ) return false;
+
+        return (this.fabricante != null
+         && this.modelo != null
+         && this.fabricante.equals(a.getFabricante())
+         && this.modelo.equals(a.getModelo())  );
     }
 }
