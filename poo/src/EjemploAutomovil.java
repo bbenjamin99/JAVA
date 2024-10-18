@@ -7,17 +7,18 @@ public class EjemploAutomovil {
         auto1.setCilindrada(2.0);
         auto1.setColor("Blanco"); 
 
-        Automovil auto2 = new Automovil();
-        auto2.getFabricante();
-        auto2.getModelo();
-        auto2.getCilindrada();
-        auto2.getColor();
-
+        Automovil auto2 = new Automovil("Honda", "Mazda", "Azul");
+        
         Automovil auto3 = new Automovil("Volkswagen", "Gol", "Gris");
         Automovil auto4Igual3 = new Automovil("Volkswagen", "Gol", "Gris");
 
-        System.out.println("Son iguales? = " + (auto3 == auto4Igual3 ) );
-        System.out.println("Son iguales ( Con Equals?) : " + auto3.equals(auto4Igual3));
+        System.out.println(auto2);
+        System.out.println(auto2.toString() );
+
+
+
+        // System.out.println("Son iguales? = " + (auto3 == auto4Igual3 ) );
+        // System.out.println("Son iguales ( Con Equals?) : " + auto3.equals(auto4Igual3));
 
     //     System.out.println( auto1.verDetalle());
     //     System.out.println(auto1.acelerar(2500));
