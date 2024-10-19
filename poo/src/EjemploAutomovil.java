@@ -14,6 +14,7 @@ public class EjemploAutomovil {
 
         System.out.println(auto2);
         System.out.println(auto2.toString() );
+        System.out.println(auto1.verDetalle());
 
 
 

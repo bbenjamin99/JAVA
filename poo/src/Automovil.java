@@ -1,14 +1,21 @@
 public class Automovil {
+    private int id;
     private String fabricante;
     private String modelo;
     private String color = "Gris";
     private double cilindrada;
     private int capacidadTanque = 40;
-
+    
+    private static int capacidadTanqueEstatico = 50;
+    private static String colorPatente = "Blanco"; 
+    private static int ultimoId;
     // Constructor
-    public Automovil(){}
+    public Automovil(){
+        this.id = ++ultimoId;
+    }
 
     public Automovil(String fabricante, String modelo){
+        this();
         this.fabricante = fabricante;
         this.modelo = modelo;
     }
@@ -69,13 +76,22 @@ public class Automovil {
         this.capacidadTanque = capacidadTanque;
     }
 
+    public static String getColorPatente(){
+        return colorPatente;
+    }
+
+    public static void setColorPatente(String colorPatente) {
+        Automovil.colorPatente =  colorPatente;
+    }
+
     // Methods
     public String verDetalle() {
         StringBuilder sb = new StringBuilder();
         sb.append("auto1.fabricante = "+ this.fabricante + "\n")
            .append("auto1.modelo = " + this.modelo + "\n")
            .append("auto1.color = " + this.color + "\n")
-           .append("auto1.cilindrada = " + this.cilindrada);
+           .append("auto1.cilindrada = " + this.cilindrada  + "\n")
+           .append("Color Patente = "+ colorPatente);
             return sb.toString();
     }
 
@@ -103,6 +119,11 @@ public class Automovil {
     public float calcularConsumo(int kilometros, int porcentajeCombustible) {
         
         return  kilometros / (capacidadTanque * (porcentajeCombustible / 100f));
+    }
+
+    public static float calcularConsumoStatic(int kilometros, int porcentajeCombustible) {
+        
+        return  kilometros / (capacidadTanqueEstatico * (porcentajeCombustible / 100f));
     }
 
 
