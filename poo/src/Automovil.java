@@ -9,6 +9,11 @@ public class Automovil {
     private static int capacidadTanqueEstatico = 50;
     private static String colorPatente = "Blanco"; 
     private static int ultimoId;
+
+    public static final Integer VELOCIDAD_MAXIMA_RUTA = 120; 
+
+    //Enums
+    public  Color BLANCO;
     // Constructor
     public Automovil(){
         this.id = ++ultimoId;
@@ -56,8 +61,8 @@ public class Automovil {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setColor(Color color) {
+        color = color;
     }
 
     public double getCilindrada() {
@@ -144,7 +149,7 @@ public class Automovil {
 
     @Override
     public String toString() {
-        return "Automovil [fabricante=" + fabricante + ", modelo=" + modelo + ", color=" + color + ", cilindrada="
+        return "ID = " + this.id + "Automovil " + "[fabricante=" + fabricante + ", modelo=" + modelo + ", color=" + color + ", cilindrada="
                 + cilindrada + ", capacidadTanque=" + capacidadTanque + "]";
     }
 

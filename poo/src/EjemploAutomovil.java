@@ -5,16 +5,16 @@ public class EjemploAutomovil {
         auto1.setFabricante("Subaru");
         auto1.setModelo("Impreza");
         auto1.setCilindrada(2.0);
-        auto1.setColor("Blanco"); 
+        auto1.setColor(Color.BLANCO); 
 
         Automovil auto2 = new Automovil("Honda", "Mazda", "Azul");
         
         Automovil auto3 = new Automovil("Volkswagen", "Gol", "Gris");
         Automovil auto4Igual3 = new Automovil("Volkswagen", "Gol", "Gris");
 
-        System.out.println(auto2);
+        System.out.println(auto1.toString() );
         System.out.println(auto2.toString() );
-        System.out.println(auto1.verDetalle());
+        // System.out.println(auto1.verDetalle());
 
 
 
