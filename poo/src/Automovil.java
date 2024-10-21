@@ -3,8 +3,10 @@ public class Automovil {
     private String fabricante;
     private String modelo;
     private String color = "Gris";
-    private double cilindrada;
-    private int capacidadTanque = 40;
+    private Motor motor;
+    private Estanque estanque;
+    private Persona conductor;
+    private Rueda[] ruedas;
     
     private static int capacidadTanqueEstatico = 50;
     private static String colorPatente = "Blanco"; 
@@ -29,16 +31,21 @@ public class Automovil {
         this.color = color;
     }
 
-    public Automovil(String fabricante, String modelo, String color, double cilindrada){
+    public Automovil(String fabricante, String modelo, String color, Motor motor){
         this(fabricante,modelo,color);
-        this.cilindrada = cilindrada;
+        this.motor = motor;
     }
 
-    public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadTanque){
-        this(fabricante,modelo,color,cilindrada);
-        this.capacidadTanque = capacidadTanque;
+    public Automovil(String fabricante, String modelo, String color, Motor motor, Estanque estanque){
+        this(fabricante,modelo,color,motor);
+        this.estanque = estanque;
     }
-
+    public Automovil(String fabricante, String modelo, String color, Motor motor, Estanque estanque, Persona conductor,
+            Rueda[] ruedas) {
+        this(fabricante,modelo,color,motor, estanque);
+        this.conductor = conductor;
+        this.ruedas = ruedas;
+    }
 
     // Getters & Setters
     public String getFabricante() {
@@ -65,20 +72,28 @@ public class Automovil {
         color = color;
     }
 
-    public double getCilindrada() {
-        return cilindrada;
+    public Motor getMotor() {
+        return motor;
+    }
+    
+    public void setMotor(Motor motor){
+        this.motor = motor;
     }
 
-    public void setCilindrada(double cilindrada) {
-        this.cilindrada = cilindrada;
+    public void setCilindrada(Motor motor) {
+        this.motor = motor;
     }
 
-    public int getCapacidadTanque() {
-        return capacidadTanque;
+    public Estanque getEstanque() {
+        return estanque;
     }
 
-    public void setCapacidadTanque(int capacidadTanque) {
-        this.capacidadTanque = capacidadTanque;
+    public void setEstanque(Estanque estanque){
+        this.estanque = estanque;
+    }
+
+    public void setCapacidadTanque(Estanque estanque) {
+        this.estanque = estanque;
     }
 
     public static String getColorPatente(){
@@ -95,7 +110,7 @@ public class Automovil {
         sb.append("auto1.fabricante = "+ this.fabricante + "\n")
            .append("auto1.modelo = " + this.modelo + "\n")
            .append("auto1.color = " + this.color + "\n")
-           .append("auto1.cilindrada = " + this.cilindrada  + "\n")
+           .append("auto1.cilindrada = " + this.motor.getCilindrada()  + "\n")
            .append("Color Patente = "+ colorPatente);
             return sb.toString();
     }
@@ -118,12 +133,12 @@ public class Automovil {
 
     public float calcularConsumo(int kilometros, float porcentajeCombustible) {
         
-        return  kilometros / (porcentajeCombustible * this.capacidadTanque);
+        return  kilometros / (porcentajeCombustible * this.estanque.getCapacidad());
     }
 
     public float calcularConsumo(int kilometros, int porcentajeCombustible) {
         
-        return  kilometros / (capacidadTanque * (porcentajeCombustible / 100f));
+        return  kilometros / (this.estanque.getCapacidad() * (porcentajeCombustible / 100f));
     }
 
     public static float calcularConsumoStatic(int kilometros, int porcentajeCombustible) {
@@ -150,7 +165,7 @@ public class Automovil {
     @Override
     public String toString() {
         return "ID = " + this.id + "Automovil " + "[fabricante=" + fabricante + ", modelo=" + modelo + ", color=" + color + ", cilindrada="
-                + cilindrada + ", capacidadTanque=" + capacidadTanque + "]";
+                + this.motor.getCilindrada() + ", capacidadTanque=" + this.estanque.getCapacidad() + "]";
     }
 
     

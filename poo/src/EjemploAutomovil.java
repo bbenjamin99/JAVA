@@ -2,39 +2,24 @@ public class EjemploAutomovil {
     public static void main(String[] args) {
 
         Automovil auto1 = new Automovil();
-        auto1.setFabricante("Subaru");
-        auto1.setModelo("Impreza");
-        auto1.setCilindrada(2.0);
-        auto1.setColor(Color.BLANCO); 
-
-        Automovil auto2 = new Automovil("Honda", "Mazda", "Azul");
-        
-        Automovil auto3 = new Automovil("Volkswagen", "Gol", "Gris");
-        Automovil auto4Igual3 = new Automovil("Volkswagen", "Gol", "Gris");
-
-        System.out.println(auto1.toString() );
-        System.out.println(auto2.toString() );
-        // System.out.println(auto1.verDetalle());
+        auto1.setFabricante("Volkswagen");
+        auto1.setModelo("Gol Trend");
+        auto1.setMotor(new Motor(2.0d, TipoMotor.DIESEL));  
+        auto1.setEstanque(new Estanque(50));
 
 
+        Automovil mazda = new Automovil();
+        mazda.setFabricante("Honda");
+        mazda.setModelo("Mazda");
+        mazda.setColor(Color.BLANCO);
+        Motor motorMazda = new Motor();
+        motorMazda.setTipo(TipoMotor.DIESEL);
+        Estanque estanqueMazda = new Estanque(80); // Por defecto el estanque tiene 40.
+        mazda.setMotor(motorMazda);
+        mazda.setEstanque(estanqueMazda);
 
-        // System.out.println("Son iguales? = " + (auto3 == auto4Igual3 ) );
-        // System.out.println("Son iguales ( Con Equals?) : " + auto3.equals(auto4Igual3));
-
-    //     System.out.println( auto1.verDetalle());
-    //     System.out.println(auto1.acelerar(2500));
-    //     System.out.println(auto2.acelerar(1500));
-    //     System.out.println("----------------------------------");
-    //     System.out.println(auto2.verDetalle() );
-
-    //     System.out.println(auto1.acelerarFrenar(0));
-    //     System.out.println(auto1.acelerarFrenar(0));
-        
-    //     System.out.println("KM Por litro = " + auto1.calcularConsumo(300,40 ));
-
-
-    //     System.out.println("-------------------------------------------");
-
-    //    System.out.println( auto3.verDetalle() ) ;
+        System.out.println(auto1.toString());
+        System.out.println("---------------------------------");
+        System.out.println(mazda.toString());
     }
 }
