@@ -80,11 +80,18 @@ public class Automovil {
         this.motor = motor;
     }
 
+    public String getTipo() {
+        return motor.getTipo().toString();
+    }
+
     public void setCilindrada(Motor motor) {
         this.motor = motor;
     }
 
     public Estanque getEstanque() {
+        if(estanque == null) {
+            this.estanque = new Estanque();
+        }
         return estanque;
     }
 
@@ -108,8 +115,12 @@ public class Automovil {
     public String verDetalle() {
         StringBuilder sb = new StringBuilder();
         sb.append("auto1.fabricante = "+ this.fabricante + "\n")
-           .append("auto1.modelo = " + this.modelo + "\n")
-           .append("auto1.color = " + this.color + "\n")
+           .append("auto1.modelo = " + this.modelo + "\n");
+           if (getTipo() !=  null){
+            sb.append("auto1.tipo = " + this.getTipo() + "\n");
+           };
+
+           sb.append("auto1.color = " + this.color + "\n")
            .append("auto1.cilindrada = " + this.motor.getCilindrada()  + "\n")
            .append("Color Patente = "+ colorPatente);
             return sb.toString();
@@ -138,7 +149,7 @@ public class Automovil {
 
     public float calcularConsumo(int kilometros, int porcentajeCombustible) {
         
-        return  kilometros / (this.estanque.getCapacidad() * (porcentajeCombustible / 100f));
+        return  kilometros / (this.getEstanque().getCapacidad() * (porcentajeCombustible / 100f));
     }
 
     public static float calcularConsumoStatic(int kilometros, int porcentajeCombustible) {

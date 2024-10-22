@@ -1,6 +1,8 @@
-public class EjemploAutomovil {
+public class EjemploAutomovilRelacionesObjetos {
     public static void main(String[] args) {
- 
+
+        Persona conductorAuto1 = new Persona("Benjamin", "Benitez");
+
         Automovil auto1 = new Automovil();
         auto1.setFabricante("Volkswagen");
         auto1.setModelo("Gol Trend");
@@ -15,14 +17,6 @@ public class EjemploAutomovil {
         Motor motorMazda = new Motor();
         motorMazda.setTipo(TipoMotor.DIESEL);
         Estanque estanqueMazda = new Estanque(80); // Por defecto el estanque tiene 40.
-        mazda.setMotor(motorMazda);
-        mazda.setEstanque(estanqueMazda);
 
-        System.out.println(auto1.toString());
-        System.out.println("---------------------------------");
-        System.out.println(mazda.toString());
-
-        System.out.println("----------------------");
-        System.out.println(mazda.calcularConsumo(300,60));
     }
 }
