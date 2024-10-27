@@ -3,11 +3,10 @@ public class EjemploAutomovilRelacionesObjetos {
 
         Persona conductorAuto1 = new Persona("Benjamin", "Benitez");
         Rueda[] ruedasNissan = new Rueda[5];
-        ruedasNissan[0] = new Rueda("Michelin", 26, 16.6);
-        ruedasNissan[1] = new Rueda("Michelin", 26, 16.6);
-        ruedasNissan[2] = new Rueda("Michelin", 26, 16.6);
-        ruedasNissan[3] = new Rueda("Michelin", 26, 16.6);
-        ruedasNissan[4] = new Rueda("Michelin", 26, 16.6);
+
+        for(int i = 0 ; i <= ruedasNissan.length; i++) {
+            ruedasNissan[i] = new Rueda("Michelin", 26, 16.6);
+        }
 
         Automovil nissan = new Automovil();
         nissan.setFabricante("Nissan");

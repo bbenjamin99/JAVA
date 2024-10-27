@@ -21,6 +21,6 @@ public class Rueda {
     public Double getAncho() {
         return ancho;
     }
-    
+
 
 }

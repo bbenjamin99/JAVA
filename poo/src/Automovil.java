@@ -7,6 +7,7 @@ public class Automovil {
     private Estanque estanque;
     private Persona conductor;
     private Rueda[] ruedas;
+    private int indiceRuedas;
     
     private static int capacidadTanqueEstatico = 50;
     private static String colorPatente = "Blanco"; 
@@ -109,6 +110,10 @@ public class Automovil {
 
     public static void setColorPatente(String colorPatente) {
         Automovil.colorPatente =  colorPatente;
+    }
+
+    public void addRueda(Rueda rueda){
+        this.ruedas[indiceRuedas++] = rueda;
     }
 
     // Methods
