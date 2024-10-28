@@ -7,6 +7,6 @@ public class EjemploPaquetes {
         persona1.nombre = "Benjamin";
 
         Gato gato1 = new Gato();
-        
+        Perro perro1 = new Perro();
     }
 }
