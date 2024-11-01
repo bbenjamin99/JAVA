@@ -3,6 +3,7 @@ package org.bbenjamin.app.hogar;
 public class Persona {
     private String nombre;
     private String apellido;
+    private int edad;
 
 
     public String getNombre() {
@@ -18,6 +19,13 @@ public class Persona {
         this.apellido = apellido;
     }
 
+    public int getEdad(){
+        return edad;
+    }
+
+    public void setEdad(int edad){
+        this.edad = edad;
+    }
     public String lanzarPelota(){
         return "Lanzando pelota...";
     }
