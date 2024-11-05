@@ -5,9 +5,18 @@ public class Profesor extends Persona{
 
 
     //Constructor
-    public Profesor(String nombre){
+    public Profesor( ){
 
         System.out.println("Profesor: Inicializando Constructor...");
+    }
+
+    public Profesor(String nombre, String apellido ){
+        super(nombre, apellido);
+    }
+
+    public Profesor(String nombre, String apellido, String asignatura){
+        super(nombre, apellido);
+        this.asignatura = asignatura;
     }
 
     //Getters & Setters 

@@ -5,10 +5,20 @@ public class AlumnoInternacional extends Alumno {
     private double notaIdiomas;
 
     //Constructor
-    public AlumnoInternacional(String nombre){
-        super(nombre);
+    public AlumnoInternacional( ){
         System.out.println("AlumnoInternacional : Inicializando Constructor...");
     }
+
+    public AlumnoInternacional(String nombre, String apellido, String pais ){
+        super(nombre, apellido);
+        this.pais = pais;
+    }
+
+    public AlumnoInternacional(String nombre, String apellido, String pais, double notaIdiomas ){
+        this(nombre, apellido, pais);
+        this.notaIdiomas = notaIdiomas;
+    }
+
     // Getters & Setters
     public String getPais() {
         return pais;

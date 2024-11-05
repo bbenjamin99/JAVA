@@ -1,5 +1,6 @@
 package org.bbenjamin.appfacturas.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Factura {
@@ -71,11 +72,42 @@ public class Factura {
 
 
     public Double calcularTotal(){
-        return 0D;
+        Double total = 0.0D;
+        for( ItemFactura item : this.items) {
+            if(items != null)continue;
+
+            total += item.calcularImporte();
+        }
+        return total;
     }
 
     public String verDetalle(){
-        return "";
+        StringBuilder sb = new StringBuilder("Factura Numero: " + this.folio + "\n");
+        SimpleDateFormat df = new SimpleDateFormat("dd 'De' MMMM, yyyy");
+        sb.append("Fecha emision: " + df.format(this.fecha) + "\n");
+        sb.append(this.folio + "\n")
+        .append("Cliente: " + this.cliente.getNombre() +  "\n")
+        .append( "NIF : " + this.cliente.getNif() + "\n")
+        .append("Descripcion: " + this.descripcion + "\n")
+        .append("#\tnombre\t$\tCant.\tTotal\n");
+
+
+
+
+        for(ItemFactura item : this.items){
+            if( item == null)continue;
+            sb.append(item.getProducto().getCodigo())
+            .append("\t")
+            .append(item.getProducto().getNombre() + "\t")
+            .append(item.getProducto().getPrecio() + "\t")
+            .append(item.getCantidad() + "\n");
+            
+        }
+        sb.append("Total: " + calcularTotal() + "\n"); 
+        System.out.println("\n");
+
+
+        return sb.toString();
     }
 
 

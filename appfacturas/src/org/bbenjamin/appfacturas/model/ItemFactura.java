@@ -17,12 +17,6 @@ public class ItemFactura {
         return cantidad;
     }
 
-    //Methods
-    public Double calcularImporte(){
-
-        return 0d;
-    }
-
     public Producto getProducto(){
         return producto;
     } 
@@ -30,6 +24,11 @@ public class ItemFactura {
     public void setProducto(Producto producto){
         this.producto = producto;
     }
-    
+
+        //Methods
+    public Double calcularImporte(){
+
+        return this.cantidad * this.producto.getPrecio();
+    }
 
 }
