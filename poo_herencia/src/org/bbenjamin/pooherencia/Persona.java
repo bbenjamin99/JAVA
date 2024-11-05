@@ -50,6 +50,13 @@ public class Persona {
     }
 
 
+    // Methods
+
+    public String saludar(){
+
+        return "Hola que tal";
+    }
+
     
 
 }

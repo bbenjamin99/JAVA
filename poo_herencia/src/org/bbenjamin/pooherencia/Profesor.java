@@ -28,4 +28,9 @@ public class Profesor extends Persona{
         this.asignatura = asignatura;
     }
 
+    // Methods
+    public String saludar(){
+        return "Buenos días soy el profesor: " + this.getNombre() + " de la materia: " + getAsignatura();
+    }
+
 }

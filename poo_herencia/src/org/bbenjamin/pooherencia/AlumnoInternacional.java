@@ -9,6 +9,10 @@ public class AlumnoInternacional extends Alumno {
         System.out.println("AlumnoInternacional : Inicializando Constructor...");
     }
 
+    public AlumnoInternacional(String nombre, String apellido){
+        super(nombre, apellido);
+    }
+
     public AlumnoInternacional(String nombre, String apellido, String pais ){
         super(nombre, apellido);
         this.pais = pais;
@@ -34,6 +38,18 @@ public class AlumnoInternacional extends Alumno {
     }
 
 
+    //Methods
+    @Override
+    public String saludar(){
+        return "Hi, my name is : " + this.getNombre() + ", and im student from : " + this.getPais(); 
+    }
+
+    @Override
+    public double calcularPromedio() {
+
+        return ((super.calcularPromedio() * 3 ) + getNotaIdiomas() ) / 4  ;
+    }
+    
     
 
 }

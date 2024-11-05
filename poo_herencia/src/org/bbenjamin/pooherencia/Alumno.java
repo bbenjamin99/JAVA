@@ -59,6 +59,18 @@ public class Alumno extends Persona {
         this.notaHistoria = notaHistoria;
     }
 
+    // Methods
+    @Override
+    public String saludar(){
+        String saludoPadre = super.saludar();
+        return saludoPadre + "soy un alumno y mi nombre es :" + this.getNombre();
+    }
+
+    public double calcularPromedio(){
+        double total = (notaMatematica + notaCastellano + notaHistoria) / 3;
+        return total;
+    }
+
     
 
 }
