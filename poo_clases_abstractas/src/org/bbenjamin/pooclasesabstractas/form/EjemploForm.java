@@ -28,6 +28,16 @@ public class EjemploForm {
         .addOpcion(typescript)
         .addOpcion(php);
 
+        ElementoForm saludar = new ElementoForm("Saludo") {
+            
+            @Override
+            public String dibujarHtml(){
+                return "<input disabled name'"+this.nombre +"' value=\" " + this.valor + " \" ";
+            }
+        };
+
+        saludar.setValor("Hola que tal este campo esta deshabilitado");
+
         username.setValor("Benjamin.Benitez");
         password.setValor("a1b2c3");
         email.setValor("bbenjamin@corre.com");
@@ -43,6 +53,7 @@ public class EjemploForm {
         elementos.add(edad);
         elementos.add(textarea);
         elementos.add(lenguaje); 
+        elementos.add(saludar);
 
         for(ElementoForm el : elementos) {
              System.out.println(el.dibujarHtml());
