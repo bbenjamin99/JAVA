@@ -33,7 +33,7 @@ public class SelectForm extends ElementoForm{
         return this;
     }
     @Override public String dibujarHtml(){
-        StringBuilder sb = new StringBuilder("<select");
+        StringBuilder sb = new StringBuilder("<select ");
         sb.append("name='").append(this.nombre + " '>");
         
         for(Opcion opc : this.opciones){

@@ -1,5 +1,8 @@
 package org.bbenjamin.pooclasesabstractas.form;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bbenjamin.pooclasesabstractas.form.elementos.*;
 import org.bbenjamin.pooclasesabstractas.form.elementos.select.Opcion;
 
@@ -19,20 +22,33 @@ public class EjemploForm {
         Opcion javascript = new Opcion("3", "Javascript");
         Opcion typescript = new Opcion("4", "Typescript");
         Opcion php = new Opcion("5", "PHP");
-        lenguaje.addOpcion(java);
-        lenguaje.addOpcion(python);
-        lenguaje.addOpcion(javascript);
-        lenguaje.addOpcion(typescript);
-        lenguaje.addOpcion(php);
+        lenguaje.addOpcion(java)
+        .addOpcion(python)
+        .addOpcion(javascript)
+        .addOpcion(typescript)
+        .addOpcion(php);
 
         username.setValor("Benjamin.Benitez");
         password.setValor("a1b2c3");
         email.setValor("bbenjamin@corre.com");
         edad.setValor("25");
+        textarea.setValor("Searching for a first job...");
 
         java.setSelected(true);
 
-        
+        List<ElementoForm> elementos = new ArrayList<>();
+        elementos.add(username);
+        elementos.add(password);
+        elementos.add(email);
+        elementos.add(edad);
+        elementos.add(textarea);
+        elementos.add(lenguaje); 
+
+        for(ElementoForm el : elementos) {
+             System.out.println(el.dibujarHtml());
+             System.out.println("<br>");
+             
+        }
 
 
 
