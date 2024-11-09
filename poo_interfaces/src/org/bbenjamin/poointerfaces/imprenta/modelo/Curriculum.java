@@ -3,7 +3,7 @@ package org.bbenjamin.poointerfaces.imprenta.modelo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Curriculum extends Hoja {
+public class Curriculum extends Hoja implements Imprimible{
 
     private String persona;
     private String carrera; 
@@ -15,10 +15,17 @@ public class Curriculum extends Hoja {
         experiencias = new ArrayList<>();
     }
 
-    public Curriculum(String contenido, String persona, String carrera, List<String> experiencias ){
-        this(contenido);
+    public Curriculum( String persona, String carrera, String contenido ){
         this.persona = persona;
         this.carrera = carrera;
+        this(contenido);
+
+    }
+
+    public Curriculum( String persona, String carrera, String contenido, List<String> experiencias ){
+        this.persona = persona;
+        this.carrera = carrera;
+        this(contenido);
         this.experiencias = experiencias;
     }
 
