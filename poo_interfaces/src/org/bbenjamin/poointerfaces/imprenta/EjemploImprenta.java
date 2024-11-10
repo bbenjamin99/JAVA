@@ -1,12 +1,6 @@
 package org.bbenjamin.poointerfaces.imprenta;
 
-import org.bbenjamin.poointerfaces.imprenta.modelo.Curriculum;
-import org.bbenjamin.poointerfaces.imprenta.modelo.Genero;
-import org.bbenjamin.poointerfaces.imprenta.modelo.Hoja;
-import org.bbenjamin.poointerfaces.imprenta.modelo.Imprimible;
-import org.bbenjamin.poointerfaces.imprenta.modelo.Informe;
-import org.bbenjamin.poointerfaces.imprenta.modelo.Libro;
-import org.bbenjamin.poointerfaces.imprenta.modelo.Pagina;
+import org.bbenjamin.poointerfaces.imprenta.modelo.*;
 
 public class EjemploImprenta {
     public static void main(String[] args) {
@@ -35,5 +29,6 @@ public class EjemploImprenta {
 
     public static void imprimir(Imprimible imprimible){
          imprimible.imprimir();
+         System.out.println(imprimible.imprimir());
     }
 }

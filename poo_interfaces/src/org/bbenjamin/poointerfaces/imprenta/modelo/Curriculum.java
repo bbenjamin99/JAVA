@@ -44,6 +44,7 @@ public class Curriculum extends Hoja implements Imprimible{
           .append("Experiencias: ").append("\n");
 
           for(String experiencia : experiencias){
+            if(experiencias == null)continue;
             sb.append("* " + experiencia + "\n");
           }
 
