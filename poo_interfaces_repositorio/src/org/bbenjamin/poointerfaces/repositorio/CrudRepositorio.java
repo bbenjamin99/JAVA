@@ -1,14 +1,13 @@
 package org.bbenjamin.poointerfaces.repositorio;
 
+import org.bbenjamin.poointerfaces.modelo.Cliente;
+
 import java.util.List;
 
-import org.bbenjamin.poointerfaces.models.Cliente;
-
 public interface CrudRepositorio {
-
     List<Cliente> listar();
     Cliente porId(Integer id);
-    void crearCliente(Cliente cliente);
-    void editarCliente(Cliente cliente);
-    void eliminarCliente(Integer id);
+    void crear(Cliente cliente);
+    void editar(Cliente cliente);
+    void eliminar(Integer id);
 }

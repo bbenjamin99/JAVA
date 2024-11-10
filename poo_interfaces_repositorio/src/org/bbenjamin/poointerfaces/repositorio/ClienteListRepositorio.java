@@ -1,23 +1,19 @@
 package org.bbenjamin.poointerfaces.repositorio;
 
-import org.bbenjamin.poointerfaces.models.Cliente;
+import org.bbenjamin.poointerfaces.modelo.Cliente;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class ClienteListRepositorio implements CrudRepositorio,
-        OrdenableRepositorio, PaginableRepositorio{
+public class ClienteListRepositorio implements OrdenablePaginableCrudRepositorio {
 
     private List<Cliente> dataSource;
 
-    public ClienteListRepositorio(){
+    public ClienteListRepositorio() {
         this.dataSource = new ArrayList<>();
     }
 
-
-
-    //Methods
     @Override
     public List<Cliente> listar() {
         return dataSource;
@@ -25,66 +21,68 @@ public class ClienteListRepositorio implements CrudRepositorio,
 
     @Override
     public Cliente porId(Integer id) {
-    Cliente clienteEncontrado = null;
-        for(Cliente cliente : dataSource){
-            if(cliente.getId().equals(id)){
-                clienteEncontrado = cliente;
+        Cliente resultado = null;
+        for(Cliente cli: dataSource){
+            if(cli.getId() != null && cli.getId().equals(id)){
+                resultado = cli;
                 break;
             }
-
         }
-        return clienteEncontrado;
+        return resultado;
     }
 
     @Override
-    public void crearCliente(Cliente cliente) {
+    public void crear(Cliente cliente) {
         this.dataSource.add(cliente);
     }
 
     @Override
-    public void editarCliente(Cliente cliente) {
-    Cliente c = this.porId(cliente.getId());
-    c.setNombre(cliente.getNombre() );
-    c.setApellido(cliente.getApellido() );
+    public void editar(Cliente cliente) {
+        Cliente c = this.porId(cliente.getId());
+        c.setNombre(cliente.getNombre());
+        c.setApellido(cliente.getApellido());
     }
 
     @Override
-    public void eliminarCliente(Integer id) {
-        dataSource.remove(this.porId(id));
+    public void eliminar(Integer id) {
+        this.dataSource.remove(this.porId(id));
     }
 
     @Override
-    public List<Cliente> listar(String campo, Enum dir) {
-        dataSource.sort(new Comparator<Cliente>() {
-            @Override
-            public int compare(Cliente a, Cliente b){
+    public List<Cliente> listar(String campo, Direccion dir) {
+        List<Cliente> listaOrdenada = new ArrayList<>(this.dataSource);
+        listaOrdenada.sort((a, b) -> {
                 int resultado = 0;
                 if(dir == Direccion.ASC){
-                    switch(campo){
-                        case "id" ->
-                            resultado = a.getId().compareTo(b.getId());
-                        case "nombre" ->
-                            resultado = a.getNombre().compareTo(b.getNombre());
-                        case "apellido" -> 
-                            resultado = a.getApellido().compareTo(b.getApellido());
-                    }
-                } else if( dir == Direccion.DESC){
-                    switch(campo){
-                        case "id" ->
-                            resultado = b.getId().compareTo(a.getId());
-                        case "nombre" ->
-                            resultado = b.getNombre().compareTo(a.getNombre());
-                        case "apellido" -> 
-                            resultado = b.getApellido().compareTo(a .getApellido());
+                    resultado = ordenar(campo, a, b);
+                } else if(dir == Direccion.DESC){
+                    resultado = ordenar(campo, b, a);
                 }
-            }
-            return resultado;
-        }});
-        return dataSource;
+                return resultado;
+        });
+        return listaOrdenada;
     }
 
     @Override
     public List<Cliente> listar(int desde, int hasta) {
         return dataSource.subList(desde, hasta);
+    }
+
+    public static int ordenar(String campo, Cliente a, Cliente b){
+        int resultado = 0;
+        switch (campo){
+            case "id" ->
+                    resultado = a.getId().compareTo(b.getId());
+            case "nombre" ->
+                    resultado = a.getNombre().compareTo(b.getNombre());
+            case "apellido" ->
+                    resultado = a.getApellido().compareTo(b.getApellido());
+        }
+        return resultado;
+    }
+
+    @Override
+    public int total() {
+        return this.dataSource.size();
     }
 }

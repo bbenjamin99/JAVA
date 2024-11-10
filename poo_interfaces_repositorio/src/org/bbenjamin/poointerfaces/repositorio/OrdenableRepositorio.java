@@ -1,9 +1,9 @@
 package org.bbenjamin.poointerfaces.repositorio;
 
+import org.bbenjamin.poointerfaces.modelo.Cliente;
+
 import java.util.List;
 
-import org.bbenjamin.poointerfaces.models.Cliente;
-
-public interface OrdenableRepositorio  {
-    List<Cliente> listar(String campo, Enum dir);
+public interface OrdenableRepositorio {
+    List<Cliente> listar(String campo, Direccion dir);
 }
