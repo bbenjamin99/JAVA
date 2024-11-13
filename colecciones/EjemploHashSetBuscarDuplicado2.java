@@ -3,7 +3,7 @@ package org.bbenjamin.ejemplos.set;
 import java.util.HashSet;
 import java.util.Set;
 
-public class EjemploHashSetBuscarDuplicado {
+public class EjemploHashSetBuscarDuplicado2 {
     public static void main(String[] args) {
         
         String[] peces = {"Corvina", "Lenguado", "Pejerrey", "Robalo", "Atun", "Lenguado"};
@@ -20,5 +20,6 @@ public class EjemploHashSetBuscarDuplicado {
         unicos.removeAll(duplicados);
         System.out.println("Elementos unicos: " + unicos);
         System.out.println("Elementos duplicados: " + duplicados);
+        
     }
 }
