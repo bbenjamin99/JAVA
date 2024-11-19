@@ -16,8 +16,12 @@ public class EjemploHashMap {
         String nombre = persona.get("nombre");
         System.out.println(nombre);
 
-        persona.remove("email");
-        System.out.println(persona);
+        boolean verdadero = persona.remove("email", "bbenjamin4253@gmail.com"); 
+        boolean falso = persona.remove("email", "benjamin4253@gmail.com"); 
+        System.out.println(persona );
+
+        System.out.println(verdadero);
+        System.out.println(falso);
 
     }
 }
