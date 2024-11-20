@@ -14,11 +14,11 @@ public class EjemploTreeSetComparable {
          setAlumnos.add(new Alumno("Benjamin", 8));
          setAlumnos.add(new Alumno("Micaelita", 6));
          setAlumnos.add(new Alumno("Ronalda", 4));
-         setAlumnos.add(new Alumno("Rockito", 7));
+         setAlumnos.add(new Alumno("Rockito", 7)); 
          setAlumnos.add(new Alumno("Martita", 3));
          setAlumnos.add(new Alumno("Benito", 2));
 
          System.out.println(setAlumnos);
     }
 
-}
+} 
