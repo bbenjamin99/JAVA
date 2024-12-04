@@ -12,11 +12,11 @@ public class EjemploStreamSingle {
         Stream<Usuario> nombres = Stream
                 .of("Benja", "Mica", "Pepe", "Pipo", "Benja Benitez")
                 .map(nombre -> new Usuario(nombre, null) )
-                .filter(u -> u.getNombre().equals("Benja"))
+                .filter(u -> u.getNombre().equals("Benjax"))
                 .peek(u -> System.out.println(u.getNombre()));
         nombres.forEach( u -> System.out.println(u.getNombre() ) );
 
         Optional<Usuario> user = nombres.findFirst();
-        System.out.println(user.get());
+        System.out.println(user.orElse(new Usuario("John", "Doe")) );
     }
 }
